@@ -1,0 +1,25 @@
+{
+  "name": "rennes-metropole-hyblab-2018",
+  "version": "1.0.0",
+  "description": "Application web réalisée pour le site Rennes Metropole, en 4 jours dans le cadre du HYBLAB 2018 - Rennes.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx live-server --port=8383 src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanleSommer/rennes-metropole-hyblab-2018.git"
+  },
+  "author": "Nathan Le Sommer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathanleSommer/rennes-metropole-hyblab-2018/issues"
+  },
+  "homepage": "https://github.com/nathanleSommer/rennes-metropole-hyblab-2018#readme",
+  "devDependencies": {
+    "barba.js": "^1.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.12"
+  }
+}
