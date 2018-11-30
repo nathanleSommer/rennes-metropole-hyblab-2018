@@ -3,11 +3,18 @@ document.addEventListener("DOMContentLoaded", function() {
   var PrevLink = document.querySelector('a.prev');
   var NextLink = document.querySelector('a.next');
 
+  QuizzLoader.init();
+
   Barba.Pjax.init();
   Barba.Prefetch.init();
 
   Barba.Dispatcher.on('linkClicked', function(el) {
     lastElementClicked = el;
+  });
+
+  Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
+    QuizzLoader.updateLinks(container);
+    QuizzLoader.loadCurrent(container);
   });
 
   var MovePage = Barba.BaseTransition.extend({
