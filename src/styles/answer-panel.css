@@ -1,0 +1,24 @@
+.answer--container {
+    position: relative;
+    background-color: #fff; color: #000;
+    border: 1px solid black;
+    height: 100%
+}
+  
+
+.answer--wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 2em;
+    transition: all 0.25s;
+}
+
+.answer--wrapper.close {
+    top: 100vh;
+    height: 0;
+}
+  
