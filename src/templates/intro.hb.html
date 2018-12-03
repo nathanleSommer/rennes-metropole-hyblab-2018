@@ -1,0 +1,9 @@
+<h3>{{title}}</h3>
+<br />
+{{~#if (gte quizzes.length 2)}}
+    {{#each quizzes}}
+        <input class="select-quizz-{{@index}}" type="button" value="{{name}}"/>
+    {{~/each}}
+{{~^~}}
+    <input class="select-quizz-0" type="button" value="Commencer"/>
+{{~/if~}}

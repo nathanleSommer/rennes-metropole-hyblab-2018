@@ -6,6 +6,9 @@ var QuizzLoader = (function(){
     var currentGame;
     var questionId;
 
+    var quizzId;
+    var quizz = null;
+
     var gameFactories = {
         'intro': Intro,
         'default': DefaultGame,
@@ -17,11 +20,22 @@ var QuizzLoader = (function(){
     };
 
     var _hasNext = function() {
-        return questionId < QUIZZ.length;
+        if (!quizz)
+            return false;
+        return questionId < quizz.length;
     };
+
+    var _getUrl = function(q) {
+        return 'index.html?q=' + q + (quizz ? "&quizz=" + quizzId : '');
+    }
 
     return {
         init: function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            quizzId = parseInt(urlParams.get('quizz'));
+            if (!isNaN(quizzId))
+                quizz = GAME.quizzes[quizzId].quizz;
+
             this.updateLinks(document.querySelector('div.barba-container'));
             this.loadCurrent(barbaContainer);
         },
@@ -29,7 +43,13 @@ var QuizzLoader = (function(){
         goNext: function() {
             if (!_hasNext()) return;
 
-            Barba.Pjax.goTo('index.html?q=' + (questionId + 1));
+            Barba.Pjax.goTo(_getUrl(questionId + 1));
+        },
+
+        selectQuizz: function(id) {
+            quizzId = id;
+            quizz = GAME.quizzes[id].quizz;
+            this.goNext();
         },
 
         updateLinks: function(container) {
@@ -39,10 +59,10 @@ var QuizzLoader = (function(){
             questionId = parseInt(urlParams.get('q'));
             if (!questionId) questionId = 0;
 
-            prevLink.setAttribute('href', 'index.html?q=' + (questionId - 1));
-            nextLink.setAttribute('href', 'index.html?q=' + (questionId + 1));
-            barbaContainer.setAttribute('data-prev', 'index.html?q=' + (questionId - 1));
-            barbaContainer.setAttribute('data-next', 'index.html?q=' + (questionId + 1));
+            prevLink.setAttribute('href', _getUrl(questionId - 1));
+            nextLink.setAttribute('href', _getUrl(questionId + 1));
+            barbaContainer.setAttribute('data-prev', _getUrl(questionId - 1));
+            barbaContainer.setAttribute('data-next', _getUrl(questionId + 1));
 
             prevLink.style.display = _hasPrevious() ? 'block' : 'none';
             nextLink.style.display = _hasNext() ? 'block' : 'none';
@@ -51,26 +71,22 @@ var QuizzLoader = (function(){
         loadCurrent: function(container) {
             container.querySelector('label.question-num').innerHTML = questionId;
             if (questionId != 0){
-                if (!QUIZZ[questionId-1]) {     // -1 parceque sinon on saute la première question
+                if (!quizz[questionId-1]) {     // -1 parceque sinon on saute la première question
                     container.querySelector('div.question-container').innerHTML = '[Question not found]';
                     return;
                 }
 
                 var data, type;
-                data = QUIZZ[questionId-1]; // -1 parceque sinon on saute la première question
+                data = quizz[questionId-1]; // -1 parceque sinon on saute la première question
                 type = data.type;
                 
             }else{
                 var data, type;
-                data = INTRO;
+                data = GAME;
                 type = 'intro';
             }
             var _this = this;
-            currentGame = gameFactories[type]({
-                success: function() {
-                    _this.goNext();
-                },
-            });
+            currentGame = gameFactories[type](this);
 
             currentGame.build(data, container.querySelector('div.question-container'));
         }
