@@ -8,6 +8,7 @@ var QuizzLoader = (function(){
 
     var gameFactories = {
         'default': DefaultGame,
+        'cursor': CursorGame
     };
 
     var _hasPrevious = function() {

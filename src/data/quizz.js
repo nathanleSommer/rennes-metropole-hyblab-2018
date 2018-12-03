@@ -2,8 +2,9 @@ var QUIZZ = [
     {
         type:"cursor",
         title:"Quel est l'âge moyen des rennais ?",
-        range:[0,100],
-        answer:36
+        range:(0,10),
+        step:1,
+        answer:3
     },
     {
         type:"default",
