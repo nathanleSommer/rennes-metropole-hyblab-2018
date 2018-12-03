@@ -82,7 +82,7 @@ var QuizzLoader = (function(){
                 
             }else{
                 var data, type;
-                data = INTRO;
+                data = GAME;
                 type = 'intro';
             }
             var _this = this;

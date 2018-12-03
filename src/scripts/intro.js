@@ -2,21 +2,24 @@ var Intro = (function(quizz){
 
     var container;
 
-    var _start = function() {
-        quizz.selectQuizz(0);
+    var _start = function(index) {
+        quizz.selectQuizz(index);
     };
 
     return {
         build: function(data, c) {
             container = c;
-            question = data;
-
-            container.innerHTML =
-                '<h3>' + question.title + '</h3><br />' +
-                '<input class="start" type="button" value="Commencer"/>';
 
             var _this = this;
-            container.querySelector('input.start').onclick = function() { _this.start(); };
+
+            TemplateLoader.getTemplate('intro', template => {
+
+                container.innerHTML = template(GAME);
+
+                data.quizzes.forEach(function(q, index){
+                    container.querySelector('input.select-quizz-' + index).onclick = function() { _this.start(index); };
+                });
+            });
         },
 
         start: _start,
