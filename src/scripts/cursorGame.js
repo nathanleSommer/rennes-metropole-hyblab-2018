@@ -8,8 +8,12 @@ var CursorGame = (function(quizz){
     var output;
 
     var _onvalidate = function() {
+        console.log("min= "+min)
+        console.log("max= "+max)
+        console.log("threshold= "+threshold)
+        
                         var error = (max-min)*(threshold/100);
-
+                        console.log("error= "+error)
                         if ( question.answer-error <= output.value & question.answer+error >= output.value){
                             //Affiche le panneau de réponse au moment où l'on clique sur une proposition
                             document.getElementById('answer--wrapper--correct').classList.toggle('close');
@@ -19,9 +23,9 @@ var CursorGame = (function(quizz){
                             };
                         } else {
                             //Affiche le panneau de réponse au moment où l'on clique sur une proposition
-                            document.getElementById('answer--wrapper--correct').classList.toggle('close');
-                            document.getElementById('answer--wrapper--correct').onclick = function(){
-                                document.getElementById('answer--wrapper--correct').classList.toggle('close');
+                            document.getElementById('answer--wrapper--incorrect').classList.toggle('close');
+                            document.getElementById('answer--wrapper--incorrect').onclick = function(){
+                                document.getElementById('answer--wrapper--incorrect').classList.toggle('close');
                                 quizz.goNext();
                             };
                         }
@@ -36,6 +40,8 @@ var CursorGame = (function(quizz){
             var _this=this;
 
             TemplateLoader.getTemplate(question.type, template =>{
+                min= question.range[0];
+                max= question.range[1];
                 container.innerHTML = template(question);
 
                 var rangeslider = document.getElementById("myRange");
