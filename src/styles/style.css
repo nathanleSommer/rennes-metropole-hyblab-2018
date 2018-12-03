@@ -8,13 +8,11 @@ html, body {
   color: #555;
 }
 
-/*
 .question-container {
-  
-   display: flex;
-  flex-direction: column;
- 
-}*/
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
 
 /* PARTIE SLIDER */
 
@@ -43,7 +41,7 @@ html, body {
 
 .range-slider{
   -webkit-appearance: none;  /* Override default CSS styles */
-  
+
     width: 80%; /* Full-width */
     height: 15px; /* Specified height */
     border-radius: 5px;
@@ -57,7 +55,7 @@ html, body {
 .range-slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .range-slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
