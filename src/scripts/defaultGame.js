@@ -13,11 +13,12 @@ var DefaultGame = (function(quizz){
                 quizz.goNext();
             };
         } else {
-            container.querySelector('input.ans' + qId).classList.add('btn-danger');
-            container.querySelector('input.ans' + qId).classList.add('disabled');
-            
+            let answered = container.querySelector('input.ans' + qId);
+
+            answered.classList.add('btn-danger');
+            answered.classList.add('disabled');
+            answered.disabled = true;
         }
-            
     };
 
     return {
