@@ -53,7 +53,6 @@ var CursorGame = (function(quizz){
                 }
                 
                 container.querySelector('input.checker').onclick = function() { _this.onValidate(); };
-                console.dir(container);
                 var rangeSliderContainer = document.querySelector('.range-slidecontainer');
                 rangeSliderContainer.style.height = rangeSliderContainer.offsetWidth + 'px';    
             });
