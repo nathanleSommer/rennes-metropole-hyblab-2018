@@ -1,3 +1,7 @@
+var INTRO = {
+    title: "Bienvenue sur le quizz !"
+}
+
 var QUIZZ = [
     {
         type:"cursor",

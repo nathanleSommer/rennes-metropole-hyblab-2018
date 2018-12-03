@@ -7,6 +7,7 @@ var QuizzLoader = (function(){
     var questionId;
 
     var gameFactories = {
+        'intro': Intro,
         'default': DefaultGame,
     };
 
@@ -53,15 +54,24 @@ var QuizzLoader = (function(){
                 container.querySelector('div.question-container').innerHTML = '[Question not found]';
                 return;
             }
+
+            var data, type;
+            if (questionId == 0) {
+                data = INTRO;
+                type = 'intro';
+            } else {
+                data = QUIZZ[questionId];
+                type = data.type;
+            }
             
             var _this = this;
-            currentGame = gameFactories[QUIZZ[questionId].type]({
+            currentGame = gameFactories[type]({
                 success: function() {
                     _this.goNext();
                 },
             });
 
-            currentGame.build(QUIZZ[questionId], container.querySelector('div.question-container'));
+            currentGame.build(data, container.querySelector('div.question-container'));
         }
     }
 
