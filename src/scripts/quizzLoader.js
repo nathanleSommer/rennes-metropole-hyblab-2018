@@ -12,7 +12,8 @@ var QuizzLoader = (function(){
     var gameFactories = {
         'intro': Intro,
         'default': DefaultGame,
-        'cursor': CursorGame
+        'cursor': CursorGame,
+        'map': MapGame
     };
 
     var _hasPrevious = function() {
@@ -91,5 +92,4 @@ var QuizzLoader = (function(){
             currentGame.build(data, container.querySelector('div.question-container'));
         }
     }
-
 })();
