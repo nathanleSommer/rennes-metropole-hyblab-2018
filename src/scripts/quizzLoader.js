@@ -33,7 +33,7 @@ var QuizzLoader = (function(){
         init: function() {
             const urlParams = new URLSearchParams(window.location.search);
             quizzId = parseInt(urlParams.get('quizz'));
-            if (quizzId !== null)
+            if (!isNaN(quizzId))
                 quizz = GAME.quizzes[quizzId].quizz;
 
             this.updateLinks(document.querySelector('div.barba-container'));
