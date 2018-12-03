@@ -8,14 +8,43 @@ html, body {
   color: #555;
 }
 
+/*
+.question-container {
+  
+   display: flex;
+  flex-direction: column;
+ 
+}*/
 
 /* PARTIE SLIDER */
-.slidecontainer{
-  width: 100%;
+
+.range-slidecontainer{
+  width: 50%;
+  transform: rotate(90deg);
+  display: flex;
+  align-items: center;
 }
-.slider{
+
+.minContainer{
+  transform: rotate(-90deg);
+  height: 10%;
+}
+.maxContainer{
+  transform: rotate(-90deg);
+  height: 10%;
+}
+
+.imagesContainer{
+  width: 50%;
+  transform: rotate(90deg);
+  display: flex;
+  align-items: center;
+}
+
+.range-slider{
   -webkit-appearance: none;  /* Override default CSS styles */
-    width: 100%; /* Full-width */
+  
+    width: 80%; /* Full-width */
     height: 15px; /* Specified height */
     border-radius: 5px;
     background: #d3d3d3; /* Grey background */
@@ -25,11 +54,11 @@ html, body {
     transition: opacity .2s;
 }
 /* Mouse-over effects */
-.slider:hover {
+.range-slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-.slider::-webkit-slider-thumb {
+.range-slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
@@ -38,7 +67,7 @@ html, body {
   background: #4CAF50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
-.slider::-moz-range-thumb {
+.range-slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%;

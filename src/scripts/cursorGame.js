@@ -22,10 +22,16 @@ var CursorGame = (function(quizz){
 
             
             container.innerHTML = 
-            
-                "<div class='slidecontainer'>"+
-                "<input type='range' rotate='90deg' min="+ min +" max=" +max +" step=" + step+" value='5' class='slider'  orient='vertical' id='myRange'>"+
+                "<div class='volumesContainer'>"+
+                "<div class='range-slidecontainer'>"+
+                "<div class='minContainer'>" +min+ "</div>"+
+                "<input class='range-slider' type='range' step="+step+" min="+ min +" max=" +max +" value='5'   id='myRange'>"+
+                "<div class='maxContainer'>" +max+ "</div>"+
                 "</div><output id='demo'></output>"+
+                "<div class='imagesContainer'>"+
+
+                "</div>"+
+                "</div>"+
                 '<input class="checker" type="button" value="Valider" />';
 
             var rangeslider = document.getElementById("myRange");
@@ -37,7 +43,9 @@ var CursorGame = (function(quizz){
             }
             var _this=this;
             container.querySelector('input.checker').onclick = function() { _this.onValidate(); };
-
+            console.dir(container);
+            var rangeSliderContainer = document.querySelector('.range-slidecontainer');
+            rangeSliderContainer.style.height = rangeSliderContainer.offsetWidth + 'px';
         },
         onValidate: _onvalidate,
     }
