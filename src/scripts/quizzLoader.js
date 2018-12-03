@@ -12,7 +12,11 @@ var QuizzLoader = (function(){
     var gameFactories = {
         'intro': Intro,
         'default': DefaultGame,
+<<<<<<< Updated upstream
         'cursor': CursorGame
+=======
+        'map': MapGame
+>>>>>>> Stashed changes
     };
 
     var _hasPrevious = function() {
@@ -91,5 +95,4 @@ var QuizzLoader = (function(){
             currentGame.build(data, container.querySelector('div.question-container'));
         }
     }
-
 })();
