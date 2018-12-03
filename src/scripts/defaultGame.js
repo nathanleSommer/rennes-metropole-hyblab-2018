@@ -18,9 +18,9 @@ var DefaultGame = (function(quizz){
 
                 container.innerHTML = template(question);
 
-                container.querySelector('input.ans0').onclick = function() { _this.onAnswer(0); };
-                container.querySelector('input.ans1').onclick = function() { _this.onAnswer(1); };
-                container.querySelector('input.ans2').onclick = function() { _this.onAnswer(2); };
+                question.choices.forEach(function (choice, index) {
+                    container.querySelector('input.ans' + index).onclick = function() { _this.onAnswer(index); };
+                });
             });
         },
 
