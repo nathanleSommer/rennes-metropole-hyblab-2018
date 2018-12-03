@@ -4,11 +4,27 @@ var CursorGame = (function(quizz){
     var question;
     var min,max;
     var step;
+    var threshold=10; // right answer will be RA+-threshold and threshold is a percentage of the available values
     var output;
 
     var _onvalidate = function() {
-                        if (output.value == question.answer)
-                            quizz.goNext();
+                        var error = (max-min)*(threshold/100);
+
+                        if ( question.answer-error <= output.value & question.answer+error >= output.value){
+                            //Affiche le panneau de réponse au moment où l'on clique sur une proposition
+                            document.getElementById('answer--wrapper--correct').classList.toggle('close');
+                            document.getElementById('answer--wrapper--correct').onclick = function(){
+                                document.getElementById('answer--wrapper--correct').classList.toggle('close');
+                                quizz.goNext();
+                            };
+                        } else {
+                            //Affiche le panneau de réponse au moment où l'on clique sur une proposition
+                            document.getElementById('answer--wrapper--correct').classList.toggle('close');
+                            document.getElementById('answer--wrapper--correct').onclick = function(){
+                                document.getElementById('answer--wrapper--correct').classList.toggle('close');
+                                quizz.goNext();
+                            };
+                        }
                     };
     
 
