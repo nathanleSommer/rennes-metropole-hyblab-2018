@@ -3,7 +3,12 @@ var QuizzLoader = (function(){
     var nextLink = document.querySelector('a.next');
     var barbaContainer;
 
+    var currentGame;
     var questionId;
+
+    var gameFactories = {
+        'default': DefaultGame,
+    };
 
     var _hasPrevious = function() {
         return questionId > 0;
@@ -37,7 +42,14 @@ var QuizzLoader = (function(){
 
         loadCurrent: function(container) {
             container.querySelector('label.question-num').innerHTML = questionId;
-            container.querySelector('div.question-container').innerHTML = QUIZZ[questionId].title;
+
+            if (!QUIZZ[questionId]) {
+                container.querySelector('div.question-container').innerHTML = '[Question not found]';
+                return;
+            }
+            
+            currentGame = gameFactories[QUIZZ[questionId].type]();
+            currentGame.build(QUIZZ[questionId], container.querySelector('div.question-container'));
         }
     }
 
