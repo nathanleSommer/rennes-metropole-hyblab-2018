@@ -16,6 +16,7 @@
     overflow: hidden;
     padding: 2em;
     transition: all 0.25s;
+    z-index: 4;
 }
 
 .answer--wrapper.close {

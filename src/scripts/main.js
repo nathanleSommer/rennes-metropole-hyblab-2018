@@ -27,14 +27,14 @@ Handlebars.registerHelper({
 
 document.addEventListener("DOMContentLoaded", function() {
  
-  //Affiche le panneau de réponse au moment où l'on clique sur une proposition
-  document.getElementById('answer--btn').addEventListener('click', function(){
-    document.getElementById('answer--wrapper').classList.toggle('close');
-  });
+  // //Affiche le panneau de réponse au moment où l'on clique sur une proposition
+  // document.getElementById('answer--btn').addEventListener('click', function(){
+  //   document.getElementById('answer--wrapper').classList.toggle('close');
+  // });
 
-  document.getElementById('answer--wrapper').addEventListener('click', function(){
-    document.getElementById('answer--wrapper').classList.toggle('close');
-  });
+  // document.getElementById('answer--wrapper').addEventListener('click', function(){
+  //   document.getElementById('answer--wrapper').classList.toggle('close');
+  // });
 
   var lastElementClicked;
   var PrevLink = document.querySelector('a.prev');
