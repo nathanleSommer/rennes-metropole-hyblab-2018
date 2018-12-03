@@ -12,11 +12,8 @@ var QuizzLoader = (function(){
     var gameFactories = {
         'intro': Intro,
         'default': DefaultGame,
-<<<<<<< Updated upstream
-        'cursor': CursorGame
-=======
+        'cursor': CursorGame,
         'map': MapGame
->>>>>>> Stashed changes
     };
 
     var _hasPrevious = function() {
