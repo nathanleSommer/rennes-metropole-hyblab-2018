@@ -10,7 +10,7 @@ var QuizzLoader = (function(){
     }
 
     var _hasNext = function() {
-        return questionId < 10;
+        return questionId < QUIZZ.length;
     }
 
     return {
@@ -37,6 +37,7 @@ var QuizzLoader = (function(){
 
         loadCurrent: function(container) {
             container.querySelector('label.question-num').innerHTML = questionId;
+            container.querySelector('div.question-container').innerHTML = QUIZZ[questionId].title;
         }
     }
 
