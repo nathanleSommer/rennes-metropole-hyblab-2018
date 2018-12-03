@@ -5,13 +5,7 @@ var DefaultGame = (function(quizz){
 
     var _onanswer = function(qId) {
         if (qId === question.answer) {
-            
-            //Affiche le panneau de réponse au moment où l'on clique sur une proposition
-            document.getElementById('answer--wrapper--correct').classList.toggle('close');
-            document.getElementById('answer--wrapper--correct').onclick = function(){
-                document.getElementById('answer--wrapper--correct').classList.toggle('close');
-                quizz.goNext();
-            };
+            quizz.openAnswer(qId);
         } else {
             let answered = container.querySelector('input.ans' + qId);
 

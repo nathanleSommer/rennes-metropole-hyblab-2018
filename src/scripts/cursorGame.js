@@ -11,26 +11,18 @@ var CursorGame = (function(quizz){
         console.log("min= "+min)
         console.log("max= "+max)
         console.log("threshold= "+threshold)
+
+        var error = (max-min)*(threshold/100);
+        var success = question.answer-error <= output.value && question.answer+error >= output.value;
         
-                        var error = (max-min)*(threshold/100);
-                        console.log("error= "+error)
-                        if ( question.answer-error <= output.value & question.answer+error >= output.value){
-                            //Affiche le panneau de réponse au moment où l'on clique sur une proposition
-                            document.getElementById('answer--wrapper--correct').classList.toggle('close');
-                            document.getElementById('answer--wrapper--correct').onclick = function(){
-                                document.getElementById('answer--wrapper--correct').classList.toggle('close');
-                                quizz.goNext();
-                            };
-                        } else {
-                            //Affiche le panneau de réponse au moment où l'on clique sur une proposition
-                            document.getElementById('answer--wrapper--incorrect').classList.toggle('close');
-                            document.getElementById('answer--wrapper--incorrect').onclick = function(){
-                                document.getElementById('answer--wrapper--incorrect').classList.toggle('close');
-                                quizz.goNext();
-                            };
-                        }
-                    };
+        console.log("error= "+error)
+        
+        quizz.openAnswer({
+            success: success,
+            value: output.value,
+        });
     
+    };
 
     return {
         build: function(q, c) {

@@ -1,0 +1,20 @@
+<div>
+    <h2>
+        {{~#if userAnswer.success}}
+            Bravo :)
+        {{~^~}}
+            Presque :(
+        {{~/if~}}
+    </h2>
+
+    <br />
+
+    Votre réponse : {{ userAnswer.value }}
+    <br />
+    Vrai valeur : {{ answer }}
+
+    <br />
+    <br />
+
+    <input class="go-next btn btn-lg btn-block" type="button" value="Continuer"/>
+</div>

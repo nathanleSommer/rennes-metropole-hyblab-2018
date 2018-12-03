@@ -11,11 +11,7 @@ var ChainedGame = (function(quizz){
 
             // Was it last question ?
             if (subQuestionId == question.questions.length - 1) {
-                document.getElementById('answer--wrapper--correct').classList.toggle('close');
-                document.getElementById('answer--wrapper--correct').onclick = function(){
-                    document.getElementById('answer--wrapper--correct').classList.toggle('close');
-                    quizz.goNext();
-                };
+                quizz.openAnswer({});
             } else {
                 subQuestionId++;
                 Barba.Pjax.goTo(quizz.getUrl(quizz.getQuestionId()) + "&sid=" + subQuestionId);
