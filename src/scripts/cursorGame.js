@@ -6,7 +6,7 @@ var CursorGame = (function(){
     var step;
     var output;
     var _onvalidate = function() {
-                        if (output.innerHTML.value == question.answer)
+                        if (output.value == question.answer)
                             quizz.success();
                     };
     
@@ -39,7 +39,7 @@ var CursorGame = (function(){
             container.querySelector('input.checker').onclick = function() { _this.onValidate(); };
 
         },
-        onValidate:_onvalidate,
+        onValidate: _onvalidate,
     }
 
 });

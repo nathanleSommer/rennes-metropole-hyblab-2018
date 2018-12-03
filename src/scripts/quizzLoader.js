@@ -50,21 +50,21 @@ var QuizzLoader = (function(){
 
         loadCurrent: function(container) {
             container.querySelector('label.question-num').innerHTML = questionId;
+            if (questionId != 0){
+                if (!QUIZZ[questionId-1]) {     // -1 parceque sinon on saute la première question
+                    container.querySelector('div.question-container').innerHTML = '[Question not found]';
+                    return;
+                }
 
-            if (!QUIZZ[questionId]) {
-                container.querySelector('div.question-container').innerHTML = '[Question not found]';
-                return;
-            }
-
-            var data, type;
-            if (questionId == 0) {
+                var data, type;
+                data = QUIZZ[questionId-1]; // -1 parceque sinon on saute la première question
+                type = data.type;
+                
+            }else{
+                var data, type;
                 data = INTRO;
                 type = 'intro';
-            } else {
-                data = QUIZZ[questionId];
-                type = data.type;
             }
-            
             var _this = this;
             currentGame = gameFactories[type]({
                 success: function() {
