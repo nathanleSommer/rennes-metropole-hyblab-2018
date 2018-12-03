@@ -1,0 +1,11 @@
+<h3>{{title}}</h3><br/>
+<div class='volumesContainer'>
+    <div class='range-slidecontainer'>
+        <div class='minContainer'> {{range.[0]}} </div>
+        <input class='range-slider' type='range' step={{step}} min={{range.[0]}} max={{range.[1]}} value='5'   id='myRange'>
+        <div class='maxContainer'> {{range.[1]}}</div>
+    </div><output id='demo'></output>
+    <div class='imagesContainer'>
+    </div>
+</div>
+    <input class="checker" type="button" value="Valider" />

@@ -30,7 +30,7 @@ var QUIZZ_NORMAL = [
         title:"Quel est l'âge moyen des rennais ?",
         range:[0,10],
         step:1,
-        answer:3
+        answer:6
     },
     {
         type: "chained",
