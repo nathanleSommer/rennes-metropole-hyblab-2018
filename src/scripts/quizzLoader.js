@@ -9,6 +9,8 @@ var QuizzLoader = (function(){
     var quizzId;
     var quizz = null;
 
+    var _switchingQuestion = false;
+
     var gameFactories = {
         'intro': Intro,
         'outro': Outro,
@@ -40,16 +42,19 @@ var QuizzLoader = (function(){
 
             this.updateLinks(document.querySelector('div.barba-container'));
             this.loadCurrent(barbaContainer);
+
+            _switchingQuestion = false;
         },
 
         restart: function() {
             quizz = null;
+            _switchingQuestion = true;
             Barba.Pjax.goTo('index.html');
         },
 
         goNext: function() {
             if (!_hasNext()) return;
-
+            _switchingQuestion = true;
             Barba.Pjax.goTo(_getUrl(questionId + 1));
         },
 
@@ -73,6 +78,8 @@ var QuizzLoader = (function(){
 
             prevLink.style.display = _hasPrevious() ? 'block' : 'none';
             nextLink.style.display = _hasNext() ? 'block' : 'none';
+
+            _switchingQuestion = false;
         },
 
         loadCurrent: function(container) {
@@ -96,6 +103,10 @@ var QuizzLoader = (function(){
             currentGame = gameFactories[type](this);
 
             currentGame.build(data, container.querySelector('div.question-container'));
-        }
+        },
+
+        isSwitchingQuestion: function() {
+            return _switchingQuestion;
+        },
     }
 })();
