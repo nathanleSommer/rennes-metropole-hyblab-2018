@@ -13,16 +13,22 @@ var QuizzLoader = (function(){
 
     var _hasPrevious = function() {
         return questionId > 0;
-    }
+    };
 
     var _hasNext = function() {
         return questionId < QUIZZ.length;
-    }
+    };
 
     return {
         init: function() {
             this.updateLinks(document.querySelector('div.barba-container'));
             this.loadCurrent(barbaContainer);
+        },
+
+        goNext: function() {
+            if (!_hasNext()) return;
+
+            Barba.Pjax.goTo('index.html?q=' + (questionId + 1));
         },
 
         updateLinks: function(container) {
@@ -49,7 +55,13 @@ var QuizzLoader = (function(){
                 return;
             }
             
-            currentGame = gameFactories[QUIZZ[questionId].type]();
+            var _this = this;
+            currentGame = gameFactories[QUIZZ[questionId].type]({
+                success: function() {
+                    _this.goNext();
+                },
+            });
+
             currentGame.build(QUIZZ[questionId], container.querySelector('div.question-container'));
         }
     }
