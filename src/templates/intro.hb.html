@@ -2,7 +2,7 @@
 <br />
 {{~#if (gte quizzes.length 2)}}
     {{#each quizzes}}
-        <input class="select-quizz-{{@index}}" type="button" value="{{name}}"/>
+        <input class="select-quizz-{{@index}} btn btn-lg btn-block" type="button" value="{{name}}"/>
     {{~/each}}
 {{~^~}}
     <input class="select-quizz-0" type="button" value="Commencer"/>

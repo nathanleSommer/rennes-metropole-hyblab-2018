@@ -81,10 +81,13 @@ var QuizzLoader = (function(){
             nextLink.style.display = _hasNext() ? 'block' : 'none';
 
             _switchingQuestion = false;
+
+            //prevLink.style.display = 'none';
+            //nextLink.style.display = 'none';
         },
 
         loadCurrent: function(container) {
-            container.querySelector('label.question-num').innerHTML = questionId;
+            //container.querySelector('label.question-num').innerHTML = questionId;
 
             var data, type;
 
