@@ -33,8 +33,8 @@ var QuizzLoader = (function(){
         init: function() {
             const urlParams = new URLSearchParams(window.location.search);
             quizzId = parseInt(urlParams.get('quizz'));
-            if (quizzId)
-                quizz = GAME.quizzes[quizzId];
+            if (quizzId !== null)
+                quizz = GAME.quizzes[quizzId].quizz;
 
             this.updateLinks(document.querySelector('div.barba-container'));
             this.loadCurrent(barbaContainer);
@@ -49,7 +49,6 @@ var QuizzLoader = (function(){
         selectQuizz: function(id) {
             quizzId = id;
             quizz = GAME.quizzes[id].quizz;
-            console.log(quizz);
             this.goNext();
         },
 
