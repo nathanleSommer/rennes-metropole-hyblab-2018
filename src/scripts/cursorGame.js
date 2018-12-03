@@ -7,7 +7,7 @@ var CursorGame = (function(quizz){
     var output;
     var _onvalidate = function() {
                         if (output.value == question.answer)
-                            quizz.success();
+                            quizz.goNext();
                     };
     
 

@@ -3,7 +3,7 @@ var Intro = (function(quizz){
     var container;
 
     var _start = function() {
-        quizz.success();
+        quizz.selectQuizz(0);
     };
 
     return {

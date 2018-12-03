@@ -5,7 +5,7 @@ var DefaultGame = (function(quizz){
 
     var _onanswer = function(qId) {
         if (qId === question.answer)
-            quizz.success();
+            quizz.goNext();
     };
 
     return {
