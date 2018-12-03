@@ -1,4 +1,4 @@
-var CursorGame = (function(){
+var CursorGame = (function(quizz){
 
     var container;
     var question;
@@ -24,7 +24,7 @@ var CursorGame = (function(){
             container.innerHTML = 
             
                 "<div class='slidecontainer'>"+
-                "<input type='range' min="+ min +" max=" +max +" step=" + step+" value='5' class='slider'  orient='vertical' id='myRange'>"+
+                "<input type='range' rotate='90deg' min="+ min +" max=" +max +" step=" + step+" value='5' class='slider'  orient='vertical' id='myRange'>"+
                 "</div><output id='demo'></output>"+
                 '<input class="checker" type="button" value="Valider" />';
 
