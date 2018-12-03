@@ -2,6 +2,10 @@ var INTRO = {
     title: "Bienvenue sur le quizz !"
 };
 
+var OUTRO = {
+    title: "Merci d'avoir joué !"
+};
+
 var QUIZZ_EASY = [
     {
         type:"cursor",
@@ -65,6 +69,7 @@ var GAME = {
             name: "Normal",
             quizz: QUIZZ_NORMAL,
         },
-    ]
+    ],
+    outro: OUTRO,
 };
 

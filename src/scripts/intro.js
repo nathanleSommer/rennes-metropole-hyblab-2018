@@ -14,7 +14,7 @@ var Intro = (function(quizz){
 
             TemplateLoader.getTemplate('intro', template => {
 
-                container.innerHTML = template(GAME);
+                container.innerHTML = template(data);
 
                 data.quizzes.forEach(function(q, index){
                     container.querySelector('input.select-quizz-' + index).onclick = function() { _this.start(index); };

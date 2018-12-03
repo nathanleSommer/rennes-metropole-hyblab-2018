@@ -11,6 +11,7 @@ var QuizzLoader = (function(){
 
     var gameFactories = {
         'intro': Intro,
+        'outro': Outro,
         'default': DefaultGame,
         'cursor': CursorGame,
         'map': MapGame
@@ -23,7 +24,7 @@ var QuizzLoader = (function(){
     var _hasNext = function() {
         if (!quizz)
             return false;
-        return questionId < quizz.length;
+        return questionId < quizz.length + 1;
     };
 
     var _getUrl = function(q) {
@@ -39,6 +40,11 @@ var QuizzLoader = (function(){
 
             this.updateLinks(document.querySelector('div.barba-container'));
             this.loadCurrent(barbaContainer);
+        },
+
+        restart: function() {
+            quizz = null;
+            Barba.Pjax.goTo('index.html');
         },
 
         goNext: function() {
@@ -71,20 +77,20 @@ var QuizzLoader = (function(){
 
         loadCurrent: function(container) {
             container.querySelector('label.question-num').innerHTML = questionId;
-            if (questionId != 0){
+
+            var data, type;
+
+            if (questionId == 0 || questionId > quizz.length) {
+                data = GAME;
+                type = questionId == 0 ? 'intro' : 'outro';
+            } else {
                 if (!quizz[questionId-1]) {     // -1 parceque sinon on saute la première question
                     container.querySelector('div.question-container').innerHTML = '[Question not found]';
                     return;
                 }
 
-                var data, type;
                 data = quizz[questionId-1]; // -1 parceque sinon on saute la première question
                 type = data.type;
-                
-            }else{
-                var data, type;
-                data = GAME;
-                type = 'intro';
             }
             var _this = this;
             currentGame = gameFactories[type](this);
