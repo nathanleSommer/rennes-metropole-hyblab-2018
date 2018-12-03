@@ -15,6 +15,7 @@ var QuizzLoader = (function(){
         'intro': Intro,
         'outro': Outro,
         'default': DefaultGame,
+        'chained': ChainedGame,
         'cursor': CursorGame,
         'map': MapGame
     };
@@ -108,5 +109,8 @@ var QuizzLoader = (function(){
         isSwitchingQuestion: function() {
             return _switchingQuestion;
         },
+
+        getUrl : _getUrl,
+        getQuestionId: function() { return questionId; },
     }
 })();
