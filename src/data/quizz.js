@@ -14,10 +14,10 @@ var QUIZZ_EASY = [
     {
         type:"cursor",
         title:"Quel est l'âge moyen des rennais ?",
-        range:[0,10],
-        step:1,
+        range:[20,100],
+        step:5,
         theme:"immeuble",
-        answer:3
+        answer:35
     },
     {
         type:"default",
@@ -38,12 +38,21 @@ var QUIZZ_NORMAL = [
     },
     {
         type:"cursor",
-        title:"Quel est l'âge moyen des rennais ?",
+        title:"Combien de Kg d'ordures ménagères jette un usager par an?",
         theme:"poubelle",
-        range:[0,10],
-        step:1,
-        answer:6
+        range:[0,500],
+        step:50,
+        answer:192
     },
+    {
+        type:"cursor",
+        title:"De combien d'étage dispose la nouvelle tour Samsic?",
+        theme:"immeuble",
+        range:[8,32],
+        step:3,
+        answer:26
+    },
+
     {
         type: "chained",
         theme: "transport",
