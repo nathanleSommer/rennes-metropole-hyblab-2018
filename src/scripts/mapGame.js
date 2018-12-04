@@ -58,8 +58,8 @@ var MapGame = (function(quizz){
 });
 
 const svgns = "http://www.w3.org/2000/svg";
-const segment_height = 40.5;
-const segment_width = 35;
+const segment_height = 42.5;
+const segment_width = 36.8;
 const grid_height = 22;
 const grid_width = 29;
 const snap_radius = 20;
