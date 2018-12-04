@@ -9,6 +9,11 @@ var MapGame = (function(quizz){
 
         if(!validated) {
             document.querySelector('input.checker').value = "Continuer";
+            document.querySelector('#line-player').style.stroke = "#c0392b";
+            document.querySelector('#line-answer').style.stroke = "#27ae60";
+            last_circle.style.fill = "none";
+            stop_drawing = true;
+
             validated = true;
         }
         else {
@@ -64,11 +69,12 @@ const grid_height = 22;
 const grid_width = 29;
 const snap_radius = 20;
 
-let last_circle = null;
+var last_circle = null;
+var stop_drawing = false;
 
 let clickcircle = function (evt) {
 
-    if(event.buttons != 1) return;
+    if(stop_drawing || event.buttons != 1) return;
 
     let svg = document.querySelector("#map-svg");
     let line = document.querySelector("#map-svg > polyline");
@@ -82,7 +88,7 @@ let clickcircle = function (evt) {
 
     if (last_circle != null) last_circle.style.fill = "none";
 
-    circle.style.fill = "#e74c3c";
+    circle.style.fill = "#2980b9";
     last_circle = circle;
 };
 
