@@ -147,7 +147,67 @@ document.addEventListener("DOMContentLoaded", function() {
     },
   });
 
+  var ScrollUpPage = Barba.BaseTransition.extend({
+    start: function() {
+      this.originalThumb = lastElementClicked;
+
+      Promise
+        .all([this.newContainerLoading, this.scrollTop()])
+        .then(this.movePages.bind(this));
+    },
+
+    scrollTop: function() {
+      var deferred = Barba.Utils.deferred();
+      var obj = { y: window.pageYOffset };
+
+      TweenLite.to(obj, 0.4, {
+        y: 0,
+        onUpdate: function() {
+          if (obj.y === 0) {
+            deferred.resolve();
+          }
+
+          window.scroll(0, obj.y);
+        },
+        onComplete: function() {
+          deferred.resolve();
+        }
+      });
+
+      return deferred.promise;
+    },
+
+    movePages: function() {
+      var _this = this;
+      var goingForward = true;
+
+      if (this.getNewPageFile() === this.oldContainer.dataset.prev) {
+        goingForward = false;
+      }
+
+      TweenLite.set(this.newContainer, {
+        visibility: 'visible',
+        yPercent: goingForward ? 100 : -100,
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        right: 0
+      });
+
+      TweenLite.to(this.oldContainer, 0.6, { yPercent: goingForward ? -100 : 100 });
+      TweenLite.to(this.newContainer, 0.6, { yPercent: 0, onComplete: function() {
+        TweenLite.set(_this.newContainer, { clearProps: 'all' });
+        _this.done();
+      }});
+    },
+
+    getNewPageFile: function() {
+      return Barba.HistoryManager.currentStatus().url.split('/').pop();
+    }
+  });
+
   Barba.Pjax.getTransition = function() {
-    return QuizzLoader.isSwitchingQuestion() ? MovePage : FadeTransition;
+    return QuizzLoader.isSwitchingQuestion() ? MovePage : 
+      (QuizzLoader.isSwitchingAnswer()) ? ScrollUpPage : FadeTransition;
   };
 });

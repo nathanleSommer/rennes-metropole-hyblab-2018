@@ -9,7 +9,10 @@ var QuizzLoader = (function(){
     var quizzId;
     var quizz = null;
 
+    var userAnswer = null;
+
     var _switchingQuestion = false;
+    var _switchingAnswer = false;
 
     var gameFactories = {
         'intro': Intro,
@@ -17,7 +20,8 @@ var QuizzLoader = (function(){
         'default': DefaultGame,
         'chained': ChainedGame,
         'cursor': CursorGame,
-        'map': MapGame
+        'map': MapGame,
+        'answer': AnswerPopup,
     };
 
     var _hasPrevious = function() {
@@ -45,6 +49,7 @@ var QuizzLoader = (function(){
             this.loadCurrent(barbaContainer);
 
             _switchingQuestion = false;
+            _switchingAnswer = false;
         },
 
         restart: function() {
@@ -65,6 +70,12 @@ var QuizzLoader = (function(){
             this.goNext();
         },
 
+        openAnswer: function(res) {
+            userAnswer = res;
+            _switchingAnswer = true;
+            Barba.Pjax.goTo(_getUrl(questionId) + "&answer=1");
+        },
+
         updateLinks: function(container) {
             barbaContainer = container;
 
@@ -81,6 +92,7 @@ var QuizzLoader = (function(){
             nextLink.style.display = _hasNext() ? 'block' : 'none';
 
             _switchingQuestion = false;
+            _switchingAnswer = false;
 
             //prevLink.style.display = 'none';
             //nextLink.style.display = 'none';
@@ -90,6 +102,9 @@ var QuizzLoader = (function(){
             //container.querySelector('label.question-num').innerHTML = questionId;
 
             var data, type;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            _isAnswer = parseInt(urlParams.get('answer'));
 
             if (questionId == 0 || questionId > quizz.length) {
                 data = GAME;
@@ -101,7 +116,13 @@ var QuizzLoader = (function(){
                 }
 
                 data = quizz[questionId-1]; // -1 parceque sinon on saute la première question
-                type = data.type;
+
+                if (!isNaN(_isAnswer) && _isAnswer === 1 && userAnswer !== null) {
+                    type = 'answer';
+                    data.userAnswer = userAnswer;
+                } else {
+                    type = data.type;
+                }
             }
             var _this = this;
             currentGame = gameFactories[type](this);
@@ -111,6 +132,9 @@ var QuizzLoader = (function(){
 
         isSwitchingQuestion: function() {
             return _switchingQuestion;
+        },
+        isSwitchingAnswer: function() {
+            return _switchingAnswer;
         },
 
         getUrl : _getUrl,
