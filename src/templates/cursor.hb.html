@@ -1,22 +1,15 @@
 <h3>{{title}}</h3><br/>
 <div class='volumesContainer'>
-
-
-    <input type="range" orient="vertical" step={{step}} min={{range.[0]}} max={{range.[1]}} value={{range.[0]}}   id='myRange' style="float: left; width:25%" />
-
-    <!--<div class='range-slidecontainer' style="float: left; width:25%">
+    <div class='range-slidecontainer' style="float: left; width:40%">
         <div class='minContainer'> {{range.[0]}} </div>
-
-
-        
         <input class='range-slider' type='range' step={{step}} min={{range.[0]}} max={{range.[1]}} value={{range.[0]}}   id='myRange'>
         <div class='maxContainer'> {{range.[1]}}</div>
-    </div>-->
-    <div class='imagesContainer' style= "float: left; width: 70%">
-            <img class="img" alt="Image" id="im" style= "width: 100%"/>
+    </div>
+    <div class='imagesContainer' style= "float: left; width: 50%">
+            <img class="img" alt="Image" id="im"/>
     </div>
 </div>
 <div class="outputDiv">
-    <output class="output" id='demo'></output>
+    <output id='demo'></output>
 </div>
     <input class="checker btn btn-lg btn-block" type="button" value="Valider" />

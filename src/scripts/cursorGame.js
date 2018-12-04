@@ -32,10 +32,11 @@ var CursorGame = (function(quizz){
       }
     }
     var _onvalidate = function() {
-        
+
 
         var error = (max-min)*(threshold/100);
         var success = question.answer-error <= output.value && question.answer+error >= output.value;
+
         console.log("error= "+error)
         console.log("imganswer= "+idImage(question.answer))
         quizz.openAnswer({
@@ -52,6 +53,7 @@ var CursorGame = (function(quizz){
             container = c;
             question = q;
             imageType=question.theme;
+
             i0="data/images/"+imageType +"1.svg";
             i1="data/images/"+imageType +"2.svg";
             i2="data/images/"+imageType +"3.svg";

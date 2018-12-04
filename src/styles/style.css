@@ -4,7 +4,7 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'PT Serif', serif;
   color: #555;
 }
 
@@ -18,16 +18,12 @@ html, body {
   display: hidden;
 }
 
-
-
 /* PARTIE INTRO */
 
 .intro-difficulty-container {
   width: 100%;
   /*margin: 0 auto;*/
     text-align: center;
-    padding-top: 5em;
-    padding-bottom: 1em;
 }
 
 .intro-difficulty-input {
@@ -37,7 +33,9 @@ html, body {
     zoom: 1;
 }
 
-
+.intro-difficulty-clicked {
+  background: grey;
+}
 
 .btn-block {
   border-radius: 2rem;
@@ -45,45 +43,32 @@ html, body {
   color: white;
 }
 
-.btn {
-  border-radius: 2rem;
-  background-color: #3171b6;
-  color: white;
-}
-
-.intro-difficulty-clicked {
-  background-color: grey;
-}
-
 /* PARTIE SLIDER */
-.volumesContainer{
-  display: block;
-  align-items: baseline;
-}
+
 div #col1 {
   display: inline-block;
-  float: left;
   width: 50%;
   padding: 10px;
-  text-align: center;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+	overflow:hidden;
+  align-items: center;
 }
+
+
+
 
 div #col2 {
   display: inline-block;
-  width: 50%;
+  width: 40%;
   padding: 10px;
+  margin-right:auto;
+	margin-left:auto;
+  overflow : hidden;
   text-align: center;
 }
 
-
-input[type=range][orient=vertical]
-{
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
-    width: 8px;
-    height: 175px;
-    padding: 0 5px;
-}
 
 .range-slidecontainer{
   display: flex;
@@ -103,7 +88,6 @@ input[type=range][orient=vertical]
 
 
 .imagesContainer{
-  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -112,7 +96,7 @@ input[type=range][orient=vertical]
 
 .range-slider{
   -webkit-appearance: none;  /* Override default CSS styles */
-    height : max-content;
+
     width: 80%; /* Full-width */
     height: 15px; /* Specified height */
     border-radius: 5px;
@@ -144,19 +128,6 @@ input[type=range][orient=vertical]
   cursor: pointer; /* Cursor on hover */
 }
 
-.outputDiv{
-  text-align: center;
-  
-}
-.output{
-  background: #9ed7fd;
-  padding: 5px 15px 5px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #3171b6;
-  border-radius: 10px;
-  margin: 10px;
-}
 
 h1 {
   font-family: 'Source Sans Pro', serif;
@@ -211,4 +182,9 @@ a.nav.next {
 
 a.nav.prev {
   left: 0;
+}
+
+img {
+  margin-left:auto;
+  margin-right:auto;
 }
