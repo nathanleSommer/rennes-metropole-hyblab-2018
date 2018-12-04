@@ -18,6 +18,8 @@ html, body {
   display: hidden;
 }
 
+
+
 /* PARTIE INTRO */
 
 .intro-difficulty-container {
@@ -55,6 +57,15 @@ html, body {
 
 /* PARTIE SLIDER */
 
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+}
+
 .range-slidecontainer{
   display: flex;
   align-items: center;
@@ -83,7 +94,7 @@ html, body {
 
 .range-slider{
   -webkit-appearance: none;  /* Override default CSS styles */
-
+    height : max-content;
     width: 80%; /* Full-width */
     height: 15px; /* Specified height */
     border-radius: 5px;
