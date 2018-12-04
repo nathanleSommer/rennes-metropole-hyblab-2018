@@ -16,6 +16,7 @@ var QUIZZ_EASY = [
         title:"Quel est l'âge moyen des rennais ?",
         range:[0,10],
         step:1,
+        theme:"immeuble",
         answer:3
     },
     {
@@ -36,6 +37,7 @@ var QUIZZ_NORMAL = [
     {
         type:"cursor",
         title:"Quel est l'âge moyen des rennais ?",
+        theme:"poubelle",
         range:[0,10],
         step:1,
         answer:6

@@ -7,7 +7,7 @@ var CursorGame = (function(quizz){
     var threshold=10; // right answer will be RA+-threshold and threshold is a percentage of the available values
     var output;
     var i0,i1,i2,i3,i4; // five cursor images
-    var imageType = "poubelle"; // image type name
+    var imageType; // image type name
     var ImgThreshold;
     var imgSrc;
 
@@ -29,12 +29,13 @@ var CursorGame = (function(quizz){
         build: function(q, c) {
             container = c;
             question = q;
-            
+            imageType=question.theme;
             i0="data/images/"+imageType +"1.svg";
             i1="data/images/"+imageType +"2.svg";
             i2="data/images/"+imageType +"3.svg";
             i3="data/images/"+imageType +"4.svg";
             i4="data/images/"+imageType +"5.svg";
+
             console.log("srcs= "+i1+i0+i2+i3+i4);
             var _this=this;
 

@@ -116,7 +116,8 @@ html, body {
 }
 
 .inputDiv{
-  align-items: center;
+  border-width: 3px;
+  border-color: #3171b6;
   
 }
 
