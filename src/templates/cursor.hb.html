@@ -2,15 +2,12 @@
 <div class='volumesContainer'>
     <div class='range-slidecontainer'>
         <div class='minContainer'> {{range.[0]}} </div>
-        <input class='range-slider' type='range' step={{step}} min={{range.[0]}} max={{range.[1]}} value='5'   id='myRange'>
+        <input class='range-slider' type='range' step={{step}} min={{range.[0]}} max={{range.[1]}} value={{range.[0]}}   id='myRange'>
         <div class='maxContainer'> {{range.[1]}}</div>
     </div><output id='demo'></output>
     <div class='imagesContainer'>
-            <img class="img1" src="{{i0}}" alt="low" id="i1"/>
-            <img class="img2" src="{{i1}}" alt="less than average" id="i2" />
-            <img class="img3" src="{{i2}}" alt="average" id="i3" />
-            <img class="img4" src="{{i3}}" alt="slightly high" id="i4" />
-            <img class="img5" src="{{i4}}" alt="high" id="i5" />
+            <img class="img" alt="Image" id="im"/>
+            
     </div>
 </div>
     <input class="checker btn btn-lg btn-block" type="button" value="Valider" />

@@ -7,7 +7,7 @@ var CursorGame = (function(quizz){
     var threshold=10; // right answer will be RA+-threshold and threshold is a percentage of the available values
     var output;
     var i0,i1,i2,i3,i4; // five cursor images
-    var imageType = "immeuble"; // image type name
+    var imageType = "poubelle"; // image type name
     var ImgThreshold;
     var imgSrc;
 
@@ -46,55 +46,34 @@ var CursorGame = (function(quizz){
                 max= question.range[1];
                 ImgThreshold= (max - min)/5
 
-                question.i0 = i0;
-                question.i1 = i1;
-                question.i2 = i2;
-                question.i3 = i3;
-                question.i4 = i4;
+                
+               
 
                 container.innerHTML = template(question);
-
+                imgSrc= document.getElementById("im");
+                imgSrc.src=i0;
                 var rangeslider = document.getElementById("myRange");
                 output = document.getElementById("demo");
                 output.innerHTML = rangeslider.value;
-                   
+                
                 rangeslider.oninput = function() {
                     output.innerHTML = this.value;
+                    
                     if(min<= this.value & this.value < min + ImgThreshold){
-                        document.getElementById("i2").style.visibility='hidden';
-                        document.getElementById("i3").style.visibility='hidden';
-                        document.getElementById("i4").style.visibility='hidden';
-                        document.getElementById("i5").style.visibility='hidden';
-                        document.getElementById("i1").style.visibility='visible';
+                        imgSrc.src=i0;
                         
                     }else if(min + ImgThreshold <= this.value & this.value < min +2* ImgThreshold){
-                        document.getElementById("i1").style.visibility='hidden';
-                        document.getElementById("i3").style.visibility='hidden';
-                        document.getElementById("i4").style.visibility='hidden';
-                        document.getElementById("i5").style.visibility='hidden';
-                        document.getElementById("i2").style.visibility='visible';
+                        imgSrc.src=i1;
 
                     }else if(min + 2*ImgThreshold <= this.value & this.value < min +3* ImgThreshold){
-                        document.getElementById("i2").style.visibility='hidden';
-                        document.getElementById("i1").style.visibility='hidden';
-                        document.getElementById("i4").style.visibility='hidden';
-                        document.getElementById("i5").style.visibility='hidden';
-                        document.getElementById("i3").style.visibility='visible';
+                        imgSrc.src=i2;
 
                     }else if(min + 3*ImgThreshold <= this.value & this.value < min +4* ImgThreshold){
-                        document.getElementById("i2").style.visibility='hidden';
-                        document.getElementById("i3").style.visibility='hidden';
-                        document.getElementById("i1").style.visibility='hidden';
-                        document.getElementById("i5").style.visibility='hidden';
-                        document.getElementById("i4").style.visibility='visible';
-                        
+                        imgSrc.src=i3;
+
                     }else if(min + 4*ImgThreshold <= this.value & this.value <= min +5* ImgThreshold){
-                        document.getElementById("i2").style.visibility='hidden';
-                        document.getElementById("i3").style.visibility='hidden';
-                        document.getElementById("i4").style.visibility='hidden';
-                        document.getElementById("i1").style.visibility='hidden';
-                        document.getElementById("i5").style.visibility='visible';
-                        
+                        imgSrc.src=i4;
+
                     }
                     
 
