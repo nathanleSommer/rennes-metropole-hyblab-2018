@@ -54,6 +54,25 @@ html, body {
 }
 
 /* PARTIE SLIDER */
+.volumesContainer{
+  display: block;
+  align-items: baseline;
+}
+div #col1 {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+div #col2 {
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
 
 .range-slidecontainer{
   display: flex;
@@ -73,8 +92,7 @@ html, body {
 
 
 .imagesContainer{
-
-  
+  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

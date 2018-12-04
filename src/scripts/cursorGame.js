@@ -10,19 +10,41 @@ var CursorGame = (function(quizz){
     var imageType; // image type name
     var ImgThreshold;
     var imgSrc;
+    var imgUserAnswer;
+    var imgAnswer;
 
+    var idImage = function(value){
+      if(min<= value & value < min + ImgThreshold){
+          return i0;
+
+      }else if(min + ImgThreshold <= value & value < min +2* ImgThreshold){
+          return i1;
+
+      }else if(min + 2*ImgThreshold <= value & value < min +3* ImgThreshold){
+          return i2;
+
+      }else if(min + 3*ImgThreshold <= value & value < min +4* ImgThreshold){
+          return i3;
+
+      }else if(min + 4*ImgThreshold <= value & value <= min +5* ImgThreshold){
+          return i4;
+
+      }
+    }
     var _onvalidate = function() {
         
 
         var error = (max-min)*(threshold/100);
         var success = question.answer-error <= output.value && question.answer+error >= output.value;
-        
-        
+        console.log("error= "+error)
+        console.log("imganswer= "+idImage(question.answer))
         quizz.openAnswer({
             success: success,
             value: output.value,
+            imgAnswer: idImage(question.answer),
+            imgUserAnswer: idImage(output.value),
         });
-    
+
     };
 
     return {
@@ -44,8 +66,7 @@ var CursorGame = (function(quizz){
                 max= question.range[1];
                 ImgThreshold= (max - min)/5
 
-                
-               
+
 
                 container.innerHTML = template(question);
                 imgSrc= document.getElementById("im");
@@ -53,42 +74,20 @@ var CursorGame = (function(quizz){
                 var rangeslider = document.getElementById("myRange");
                 output = document.getElementById("demo");
                 output.innerHTML = rangeslider.value;
-                
+
                 rangeslider.oninput = function() {
                     output.innerHTML = this.value;
-                    
-                    if(min<= this.value & this.value < min + ImgThreshold){
-                        imgSrc.src=i0;
-                        
-                    }else if(min + ImgThreshold <= this.value & this.value < min +2* ImgThreshold){
-                        imgSrc.src=i1;
-
-                    }else if(min + 2*ImgThreshold <= this.value & this.value < min +3* ImgThreshold){
-                        imgSrc.src=i2;
-
-                    }else if(min + 3*ImgThreshold <= this.value & this.value < min +4* ImgThreshold){
-                        imgSrc.src=i3;
-
-                    }else if(min + 4*ImgThreshold <= this.value & this.value <= min +5* ImgThreshold){
-                        imgSrc.src=i4;
-
-                    }
-                    
+                    imgSrc.src = idImage(this.value);
 
                 }
-                
+
                 container.querySelector('input.checker').onclick = function() { _this.onValidate(); };
                 var rangeSliderContainer = document.querySelector('.range-slidecontainer');
-                rangeSliderContainer.style.height = rangeSliderContainer.offsetWidth + 'px';    
+                rangeSliderContainer.style.height = rangeSliderContainer.offsetWidth + 'px';
             });
-           
+
             },
         onValidate: _onvalidate,
     }
 
 });
-
-
-
-
-
