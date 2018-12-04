@@ -160,13 +160,3 @@ a.nav.next {
 a.nav.prev {
   left: 0;
 }
-
-@media phones {
-  max-width: 767px;
-
-  /* tous les fichiers qui peuvent dépasser maxwidth (a completer ou élaguer selon le besoin)*/
-  img, table, td, blockquote, code, pre, textarea, input, iframe, object, embed, video {
-    max-width: 100%;
-  }
-
-}
