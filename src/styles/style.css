@@ -180,6 +180,19 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }*/
 
+.outputDiv{
+  text-align: center;
+  
+}
+.output{
+  background: #9ed7fd;
+  padding: 5px 15px 5px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #3171b6;
+  border-radius: 10px;
+  margin: 10px;
+}
 
 h1 {
   font-family: 'Source Sans Pro', serif;
