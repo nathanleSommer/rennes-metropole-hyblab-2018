@@ -18,6 +18,12 @@ html, body {
   display: hidden;
 }
 
+.btn-block {
+  border-radius: 2rem;
+  background-color: #3171b6;
+  color: white;
+}
+
 /* PARTIE SLIDER */
 
 .range-slidecontainer{
