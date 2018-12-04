@@ -18,6 +18,25 @@ html, body {
   display: hidden;
 }
 
+/* PARTIE INTRO */
+
+.intro-difficulty-container {
+  width: 100%;
+  /*margin: 0 auto;*/
+    text-align: center;
+}
+
+.intro-difficulty-input {
+  width: 100px;
+  /*float: left;*/
+    display: inline-block;
+    zoom: 1;
+}
+
+.intro-difficulty-clicked {
+  background: grey;
+}
+
 .btn-block {
   border-radius: 2rem;
   background-color: #3171b6;

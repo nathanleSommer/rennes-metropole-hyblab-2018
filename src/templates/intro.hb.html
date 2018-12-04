@@ -1,10 +1,26 @@
 <h3>{{intro.title}}</h3>
 <p>{{intro.subtitle}}</p>
 <br />
-{{~#if (gte quizzes.length 2)}}
-    {{#each quizzes}}
-        <input class="select-quizz-{{@index}} btn btn-lg btn-block" type="button" value="{{name}}"/>
-    {{~/each}}
-{{~^~}}
-    <input class="select-quizz-0" type="button" value="Commencer"/>
-{{~/if~}}
+
+
+<!-- <div class="btn-group-toggle" data-toggle="buttons">    
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+          
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+        </label>
+</div> -->
+
+<div class='intro-difficulty-container btn-block'>
+    {{~#if (gte quizzes.length 2)}}
+        {{#each quizzes}}
+            <input id="quizz-difficulty-{{@index}}" class="intro-difficulty-input select-quizz-difficulty-{{@index}} btn btn-lg" type="button" value="{{name}}"/>
+        {{~/each}}
+    {{~/if~}}
+</div>
+
+    <input class="start-quizz btn btn-lg btn-block" type="button" value="Commencer"/>
