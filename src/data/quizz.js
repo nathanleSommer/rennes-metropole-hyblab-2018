@@ -5,7 +5,9 @@ var INTRO = {
 
 var OUTRO = {
     title: "Merci d'avoir joué !",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    bonusImg: "data/images/poubelle2.svg",
+    bonusText: "Ceci est votre info bonus. <a href=''>avec un lien</a>",
 };
 
 var QUIZZ_EASY = [
