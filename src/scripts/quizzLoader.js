@@ -31,7 +31,7 @@ var QuizzLoader = (function(){
     var _hasNext = function() {
         if (!quizz)
             return false;
-        return questionId < quizz.length + 1;
+        return questionId < quizz.length + 2;
     };
 
     var _getUrl = function(q) {
@@ -60,6 +60,7 @@ var QuizzLoader = (function(){
 
         goNext: function() {
             if (!_hasNext()) return;
+            if (questionId > quizz.length) questionId = quizz.length;
             _switchingQuestion = true;
             Barba.Pjax.goTo(_getUrl(questionId + 1));
         },
@@ -112,6 +113,12 @@ var QuizzLoader = (function(){
             if (questionId == 0 || questionId > quizz.length) {
                 data = GAME;
                 type = questionId == 0 ? 'intro' : 'outro';
+                
+                if (type === 'outro' && !isNaN(_isAnswer) && _isAnswer === 1 && userAnswer !== null) {
+                    data.type = type;
+                    type = 'answer';
+                }
+
             } else {
                 if (!quizz[questionId-1]) {     // -1 parceque sinon on saute la première question
                     container.querySelector('div.question-container').innerHTML = '[Question not found]';
