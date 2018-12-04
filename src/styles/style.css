@@ -22,19 +22,20 @@ html, body {
 
 .range-slidecontainer{
   width: 50%;
-  transform: rotate(90deg);
   display: flex;
   align-items: center;
+  transform: rotate(-90deg);
 }
 
-.minContainer{
-  transform: rotate(-90deg);
-  height: 10%;
-}
 .maxContainer{
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   height: 10%;
 }
+.minContainer{
+  transform: rotate(90deg);
+  height: 10%;
+}
+
 
 .imagesContainer{
   width: 50%;
