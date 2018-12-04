@@ -18,6 +18,10 @@ html, body {
   display: hidden;
 }
 
+.intro-title {
+  text-align: center;
+}
+
 
 
 /* PARTIE INTRO */
@@ -31,7 +35,7 @@ html, body {
 }
 
 .intro-difficulty-input {
-  width: 100px;
+  width: 223px;
   /*float: left;*/
     display: inline-block;
     zoom: 1;
