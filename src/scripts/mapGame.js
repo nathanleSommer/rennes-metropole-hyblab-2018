@@ -40,11 +40,13 @@ var MapGame = (function(quizz){
 
                 let svg = document.getElementById("map-svg");
 
-                for (let x = 0; x < grid_width; x++) {
-                    for (let y = 0; y < grid_height; y++) {
-                        addCircle(svg, x, y);
-                    }
-                }
+                addAllCircles(svg);
+
+                // for (let x = 0; x < grid_width; x++) {
+                //     for (let y = 0; y < grid_height; y++) {
+                //         addCircle(svg, x, y);
+                //     }
+                // }
 
                 var circles = Array.from(document.querySelectorAll('svg > circle'));
 
@@ -105,14 +107,45 @@ let getCoordinates = function (x, y) {
 let addCircle = function (container, x, y) {
     let circle = document.createElementNS(svgns, 'circle');
 
-    let coordinates = getCoordinates(x, y);
+    // let coordinates = getCoordinates(x, y);
 
-    circle.setAttributeNS(null, 'cx', coordinates.x);
-    circle.setAttributeNS(null, 'cy', coordinates.y);
+    circle.setAttributeNS(null, 'cx', x);
+    circle.setAttributeNS(null, 'cy', y);
     circle.setAttributeNS(null, 'r', snap_radius);
     circle.setAttributeNS(null, 'pointer-events', 'visible');
     // circle.setAttributeNS(null, 'onclick', "click(evt)");
-    circle.setAttributeNS(null, 'style', 'fill: none; stroke: none; stroke-width: 1px;');
+    circle.setAttributeNS(null, 'style', 'fill: none; stroke: none; stroke-width: 1px; fill-opacity:.8');
 
     container.appendChild(circle);
+};
+
+let addAllCircles = function(svg) {
+    addCircle(svg,36.8, 701.25);
+    addCircle(svg,331.2, 786.25);
+    addCircle(svg,552, 658.75);
+    addCircle(svg,809.6, 680);
+    addCircle(svg,772.8, 403.75);
+    addCircle(svg,846.4, 233.75);
+    addCircle(svg,956.8, 212.5);
+    addCircle(svg,552,106.25);
+    addCircle(svg,257.6, 191.25);
+    addCircle(svg,147.2, 340);
+    addCircle(svg,110.4, 488.75);
+    addCircle(svg,110.4, 531.25);
+    addCircle(svg,147.2, 595);
+    addCircle(svg,257.6, 573.75);
+    addCircle(svg,368, 552.5);
+    addCircle(svg,441.6, 552.5);
+    addCircle(svg,441.6, 467.5);
+    addCircle(svg,294.4, 467.5);
+    addCircle(svg,220.8, 467.5);
+    addCircle(svg,404.8, 403.75);
+    addCircle(svg,588.8, 425);
+    addCircle(svg,588.8, 297.5);
+    addCircle(svg,478.4, 276.25);
+    addCircle(svg,441.6, 255);
+    addCircle(svg,515.2, 212.5);
+    addCircle(svg,588.8, 212.5);
+    addCircle(svg,662.4, 255);
+    addCircle(svg,736, 297.5);
 };

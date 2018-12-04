@@ -1,13 +1,63 @@
-<h3 class="intro-title">{{intro.title}}</h3>
-<p>{{intro.subtitle}}</p>
+<img src="data/images/ici_rennes_logo_rouge.png" style="
+    width: 100px;
+    left: 30px;
+    position:fixed;
+" />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 class="intro-title">{{intro.title}}</h1>
+
+<br />
 <br />
 
-<div class='intro-difficulty-container'>
-    {{~#if (gte quizzes.length 2)}}
-        {{#each quizzes}}
-            <input id="quizz-difficulty-{{@index}}" class="intro-difficulty-input select-quizz-difficulty-{{@index}} btn btn-lg" type="button" value="{{name}}"/>
-        {{~/each}}
-    {{~/if~}}
+<p style="
+color: #cb4533;
+text-align: center;
+font-size: 30px;
+">{{intro.subtitle}}</p>
+<br />
+<br />
+<br />
+
+<div style="text-align:center; " class='intro-difficulty-container'>
+<input id="quizz-difficulty-0" class="intro-difficulty-input select-quizz-difficulty-0 btn btn-lg" style="
+    border-radius: 2rem;
+    width: 40%;
+    margin-right: 10px;
+    background-color: #618893;
+    color: white;
+" type="button" value="Facile"/>
+<input id="quizz-difficulty-1" class="intro-difficulty-input select-quizz-difficulty-1 btn btn-lg" style="
+    border-radius: 2rem;
+    width: 40%;
+    margin-left: 10px;
+    background-color: #115a73;
+    color: white;
+" type="button" value="Difficile"/>
+</div>
+<br />
+<br />
+
+<div style="text-align: center;">
+<input style="
+    width: 50%;
+    border-radius: 2rem;
+    background-color: #cb4533;
+    color: white;
+" class="start-quizz btn btn-lg" type="button" value="Commencer"/>
 </div>
 
-<input class="start-quizz btn btn-lg btn-block" type="button" value="Commencer"/>
+<br />
+<br />
+<br />
+<br />
+<div style="text-align: left">
+    <img src="data/images/logo_rennes.png" style="
+    width: 100px;
+    left: 30px;
+    position:fixed;
+    " />
+</div>

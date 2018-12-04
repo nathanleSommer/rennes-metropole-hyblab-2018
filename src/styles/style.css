@@ -4,7 +4,7 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'PT Serif', serif;
+  font-family: 'PT Sans Narrow', serif;
   color: #555;
 }
 
@@ -42,6 +42,10 @@ html, body {
   width: 100px;
 }
 
+.default-answers {
+  padding-top : 300px;
+}
+
 /* PARTIE INTRO */
 
 .intro-difficulty-container {
@@ -59,6 +63,9 @@ html, body {
 
 .intro-difficulty-clicked {
   background: grey;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
 }
 
 .btn-block {
