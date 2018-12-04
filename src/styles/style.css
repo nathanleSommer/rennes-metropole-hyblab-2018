@@ -21,10 +21,10 @@ html, body {
 /* PARTIE SLIDER */
 
 .range-slidecontainer{
-  width: 50%;
   display: flex;
   align-items: center;
   transform: rotate(-90deg);
+  height: 100%;
 }
 
 .maxContainer{
@@ -38,9 +38,10 @@ html, body {
 
 
 .imagesContainer{
-  width: 50%;
+
   
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
