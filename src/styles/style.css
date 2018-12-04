@@ -24,6 +24,8 @@ html, body {
   width: 100%;
   /*margin: 0 auto;*/
     text-align: center;
+    padding-top: 5em;
+    padding-bottom: 1em;
 }
 
 .intro-difficulty-input {
@@ -33,14 +35,22 @@ html, body {
     zoom: 1;
 }
 
-.intro-difficulty-clicked {
-  background: grey;
-}
+
 
 .btn-block {
   border-radius: 2rem;
   background-color: #3171b6;
   color: white;
+}
+
+.btn {
+  border-radius: 2rem;
+  background-color: #3171b6;
+  color: white;
+}
+
+.intro-difficulty-clicked {
+  background-color: grey;
 }
 
 /* PARTIE SLIDER */
