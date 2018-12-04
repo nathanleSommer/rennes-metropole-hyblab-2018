@@ -4,7 +4,7 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'PT Serif', serif;
+  font-family: 'PT Sans Narrow', serif;
   color: #555;
 }
 
@@ -40,6 +40,10 @@ html, body {
   left: -10px;
   position: fixed;
   width: 100px;
+}
+
+.default-answers {
+  padding-top : 300px;
 }
 
 /* PARTIE INTRO */
