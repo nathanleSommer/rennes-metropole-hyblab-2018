@@ -43,7 +43,7 @@ html, body {
 }
 
 .default-answers {
-  padding-top : 300px;
+  padding-top : 125px;
 }
 
 /* PARTIE INTRO */
@@ -271,7 +271,6 @@ a.nav.prev {
   left: 0;
 }
 
-// Images on the answer panel for cursorGame
 #im1, #im2 {
   margin-left:auto;
   margin-right:auto;
