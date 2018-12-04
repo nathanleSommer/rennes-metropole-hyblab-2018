@@ -18,6 +18,30 @@ html, body {
   display: hidden;
 }
 
+.intro-title {
+  text-align: center;
+}
+
+.question-container > h3 {
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.answer-container > h2 {
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.theme-pastille {
+  pointer-events: none;
+  top: -10px;
+  left: -10px;
+  position: fixed;
+  width: 100px;
+}
+
 /* PARTIE INTRO */
 
 .intro-difficulty-container {
@@ -27,7 +51,7 @@ html, body {
 }
 
 .intro-difficulty-input {
-  width: 100px;
+  width: 223px;
   /*float: left;*/
     display: inline-block;
     zoom: 1;
@@ -70,6 +94,33 @@ div #col2 {
 }
 
 
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 250px;
+    padding: 0 5px;
+
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+
+}
+
+input[type=range][orient=vertical]::-webkit-slider-runnable-track{
+    background: #d3d3d3;
+    border: none;
+    border-radius: 15px;
+}
+/* NOT WORKING */
+input[type=range][orient=vertical]::-webkit-slider-thumb {
+
+}
+
 .range-slidecontainer{
   display: flex;
   align-items: center;
@@ -93,40 +144,41 @@ div #col2 {
   align-items: center;
 }
 
-
+/*
 .range-slider{
-  -webkit-appearance: none;  /* Override default CSS styles */
-
-    width: 80%; /* Full-width */
-    height: 15px; /* Specified height */
+  -webkit-appearance: none;
+    height : max-content;
+    width: 80%;
+    height: 15px;
     border-radius: 5px;
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
     transition: opacity .2s;
-}
-/* Mouse-over effects */
+}*/
+/* Mouse-over effects 
 .range-slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
+  opacity: 1;
+}*/
+
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.range-slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+/*input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: #3171b6; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  background: #3171b6;
+  cursor: pointer;
 }
-.range-slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+input[type=range]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: #3171b6; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
+  background: #3171b6;
+  cursor: pointer;
+}*/
 
 
 h1 {

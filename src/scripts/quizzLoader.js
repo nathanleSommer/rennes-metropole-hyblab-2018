@@ -133,6 +133,10 @@ var QuizzLoader = (function(){
                 document.getElementsByClassName("progression")[0].style.visibility = questionId > 0 || questionId < 7 ? "visible" : "node";
             }
 
+            document.querySelector('img.theme-immeuble').style.display = data.theme == "immeuble" ? "block" : "none";
+            document.querySelector('img.theme-poubelle').style.display = data.theme == "poubelle" ? "block" : "none";
+            document.querySelector('img.theme-transport').style.display = data.theme == "transport" ? "block" : "none";
+
             var _this = this;
             currentGame = gameFactories[type](this);
 
