@@ -23,6 +23,7 @@ var QUIZZ_EASY = [
         type:"default",
         title:"Evenement connu à Rennes cette semaine ?",
         choices: ["marathon","transmusicale","reponseD", "onemore"],
+        theme : "poubelle",
         answer: 1
     }
 ];
@@ -32,6 +33,7 @@ var QUIZZ_NORMAL = [
         type:"default",
         title:"Evenement connu à Rennes cette semaine ?",
         choices: ["marathon","transmusicale","reponseD"],
+        theme : "transport",
         answer: 1
     },
     {
@@ -44,6 +46,7 @@ var QUIZZ_NORMAL = [
     },
     {
         type: "chained",
+        theme: "transport",
         questions: [
             {
                 title: "Nouveau moyen de transport sur Rennes ?",
