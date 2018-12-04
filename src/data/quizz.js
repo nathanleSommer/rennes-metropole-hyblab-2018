@@ -1,6 +1,6 @@
 var INTRO = {
     title: "QUIZZ",
-    subtitle: "Choisissez votre difficulté."
+    subtitle: "Avez-vous bien suivi l'actu de la semaine ?"
 };
 
 var OUTRO = {
