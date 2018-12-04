@@ -12,14 +12,11 @@ var CursorGame = (function(quizz){
     var imgSrc;
 
     var _onvalidate = function() {
-        console.log("min= "+min)
-        console.log("max= "+max)
-        console.log("threshold= "+threshold)
+        
 
         var error = (max-min)*(threshold/100);
         var success = question.answer-error <= output.value && question.answer+error >= output.value;
         
-        console.log("error= "+error)
         
         quizz.openAnswer({
             success: success,

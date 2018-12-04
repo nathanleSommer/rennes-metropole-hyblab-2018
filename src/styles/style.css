@@ -105,6 +105,10 @@ html, body {
   cursor: pointer; /* Cursor on hover */
 }
 
+.inputDiv{
+  align-items: center;
+  
+}
 
 h1 {
   font-family: 'Source Sans Pro', serif;
