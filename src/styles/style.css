@@ -69,6 +69,10 @@ html, body {
 
 /* PARTIE SLIDER */
 
+.volumesContainer{
+  display: block;  
+}
+
 div #col1 {
   display: inline-block;
   width: 50%;
@@ -99,8 +103,9 @@ input[type=range][orient=vertical]
     writing-mode: bt-lr; /* IE */
     -webkit-appearance: slider-vertical; /* WebKit */
     width: 8px;
-    height: 250px;
+    height: 300px;
     padding: 0 5px;
+
 
   border-radius: 5px;
   background: #d3d3d3;
@@ -119,6 +124,29 @@ input[type=range][orient=vertical]::-webkit-slider-runnable-track{
 /* NOT WORKING */
 input[type=range][orient=vertical]::-webkit-slider-thumb {
 
+}
+
+.outputDiv{
+  text-align: center;
+}
+
+.output{
+  background: #9ed7fd;
+  padding: 5px 15px 5px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #3171b6;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.rangeslider {
+  -webkit-appearance: none;
+  height: max-content;
+  width: 80%;
+  height: 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .range-slidecontainer{
@@ -157,7 +185,7 @@ input[type=range][orient=vertical]::-webkit-slider-thumb {
     -webkit-transition: .2s;
     transition: opacity .2s;
 }*/
-/* Mouse-over effects 
+/* Mouse-over effects
 .range-slider:hover {
   opacity: 1;
 }*/
@@ -180,19 +208,6 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }*/
 
-.outputDiv{
-  text-align: center;
-  
-}
-.output{
-  background: #9ed7fd;
-  padding: 5px 15px 5px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #3171b6;
-  border-radius: 10px;
-  margin: 10px;
-}
 
 h1 {
   font-family: 'Source Sans Pro', serif;
@@ -249,7 +264,7 @@ a.nav.prev {
   left: 0;
 }
 
-img {
+#im1, #im2 {
   margin-left:auto;
   margin-right:auto;
 }
