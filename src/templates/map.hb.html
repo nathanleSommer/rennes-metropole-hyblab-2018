@@ -1,0 +1,87 @@
+<svg id="map-svg" pointer-events="none" width="100%" height="100%" viewBox="0 0 981 851"
+     xmlns="http://www.w3.org/2000/svg">
+    <image pointer-events="none" xlink:href="data/images/map.PNG" x="0" y="0" height="851" width="981"></image>
+    <polyline pointer-events="none" points="0,0 50,50" style="fill:none;stroke:#e74c3c;stroke-width:8"></polyline>
+</svg>
+
+<script type="text/javascript">
+
+    const svgns = "http://www.w3.org/2000/svg";
+    const segment_height = 40.5;
+    const segment_width = 35;
+    const grid_height = 22;
+    const grid_width = 29;
+    const snap_radius = 20;
+
+    let last_circle = null;
+
+    let clickcircle = function (evt) {
+        let svg = document.querySelector("#map-svg");
+        let line = document.querySelector("#map-svg > polyline");
+        let circle = evt.target;
+
+        let point = svg.createSVGPoint();
+        point.x = circle.getAttributeNS(null, "cx");
+        point.y = circle.getAttributeNS(null, "cy");
+
+        console.log(circle);
+
+        line.points.appendItem(point);
+
+        console.log(circle.attributes.cx, circle.attributes.cy);
+        console.log(line.points);
+
+
+        // circle.style.fill = "#e74c3c"
+    };
+
+    let isAdjacent = function (circle1, circle2) {
+        // TODO
+    };
+
+    let getCoordinates = function (x, y) {
+
+        let mapx = x * segment_width;
+        let mapy = y * segment_height;
+
+        if (x % 2 === 1) {
+            mapy += segment_height / 2;
+            console.log("yes for y = " + y)
+        }
+
+        return {x: mapx, y: mapy}
+    };
+
+    let addCircle = function (container, x, y) {
+        let circle = document.createElementNS(svgns, 'circle');
+
+        let coordinates = getCoordinates(x, y);
+
+        circle.setAttributeNS(null, 'cx', coordinates.x);
+        circle.setAttributeNS(null, 'cy', coordinates.y);
+        circle.setAttributeNS(null, 'r', snap_radius);
+        circle.setAttributeNS(null, 'pointer-events', 'visible');
+        // circle.setAttributeNS(null, 'onclick', "click(evt)");
+        circle.setAttributeNS(null, 'style', 'fill: none; stroke: none; stroke-width: 1px;');
+
+        container.appendChild(circle);
+    };
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let svg = document.getElementById("map-svg");
+
+
+        for (let x = 0; x < grid_width; x++) {
+            for (let y = 0; y < grid_height; y++) {
+                addCircle(svg, x, y);
+            }
+        }
+
+        var circles = Array.from(document.querySelectorAll('svg > circle'));
+
+
+        circles.forEach(circle => circle.setAttribute("onmouseenter", "clickcircle(evt)"));
+
+    });
+</script>
