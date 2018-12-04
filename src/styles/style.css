@@ -37,30 +37,39 @@ html, body {
   background: grey;
 }
 
+.btn-block {
+  border-radius: 2rem;
+  background-color: #3171b6;
+  color: white;
+}
+
 /* PARTIE SLIDER */
 
 .range-slidecontainer{
-  width: 50%;
-  transform: rotate(90deg);
   display: flex;
   align-items: center;
+  transform: rotate(-90deg);
+  height: 100%;
 }
 
-.minContainer{
-  transform: rotate(-90deg);
-  height: 10%;
-}
 .maxContainer{
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   height: 10%;
 }
+.minContainer{
+  transform: rotate(90deg);
+  height: 10%;
+}
+
 
 .imagesContainer{
-  width: 50%;
-  transform: rotate(90deg);
+
+  
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
+
 
 .range-slider{
   -webkit-appearance: none;  /* Override default CSS styles */
@@ -85,14 +94,14 @@ html, body {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%;
-  background: #4CAF50; /* Green background */
+  background: #3171b6; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 .range-slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%;
-  background: #4CAF50; /* Green background */
+  background: #3171b6; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
