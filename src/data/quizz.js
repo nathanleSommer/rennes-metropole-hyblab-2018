@@ -1,9 +1,11 @@
 var INTRO = {
-    title: "Bienvenue sur le quizz !"
+    title: "Bienvenue sur le quizz !",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 };
 
 var OUTRO = {
-    title: "Merci d'avoir joué !"
+    title: "Merci d'avoir joué !",
+    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 };
 
 var QUIZZ_EASY = [
