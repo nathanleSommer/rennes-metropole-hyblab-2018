@@ -38,9 +38,25 @@ html, body {
 
 .imagesContainer{
   width: 50%;
-  transform: rotate(90deg);
+  
   display: flex;
   align-items: center;
+}
+
+.img1{
+  visibility: hidden;
+}
+.img2{
+  visibility: hidden;
+}
+.img3{
+  visibility: hidden;
+}
+.img4{
+  visibility: hidden;
+}
+.img5{
+  visibility: hidden;
 }
 
 .range-slider{
