@@ -22,7 +22,7 @@ var QUIZZ_EASY = [
     },
     {
         type:"default",
-        title:"La ville de Rennes cherche à renforcer son plan d'action pour la propreté. COmbien de poubelles de rue sont actuellement à la disposition des rennais ?",
+        title:"La ville de Rennes cherche à renforcer son plan d'action pour la propreté. Combien de poubelles de rue sont actuellement à la disposition des rennais ?",
         theme:"poubelle",
         choices: ["700","1000","1300", "1600"],
         answer:2,
