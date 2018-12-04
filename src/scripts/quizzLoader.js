@@ -98,8 +98,8 @@ var QuizzLoader = (function(){
             _switchingQuestion = false;
             _switchingAnswer = false;
 
-            //prevLink.style.display = 'none';
-            //nextLink.style.display = 'none';
+            prevLink.style.display = 'none';
+            nextLink.style.display = 'none';
         },
 
         loadCurrent: function(container) {
