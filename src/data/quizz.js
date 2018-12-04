@@ -12,6 +12,10 @@ var OUTRO = {
 
 var QUIZZ_EASY = [
     {
+        type: "map",
+        title: "Pouvez-vous retracer le chemin de la ligne B du métro ?"
+    },
+    {
         type:"cursor",
         title:"Quel est l'âge moyen des rennais ?",
         range:[20,100],
@@ -25,7 +29,7 @@ var QUIZZ_EASY = [
         choices: ["marathon","transmusicale","reponseD", "onemore"],
         theme : "poubelle",
         answer: 1
-    }
+    },
 ];
 
 var QUIZZ_NORMAL = [
