@@ -83,6 +83,9 @@ var QuizzLoader = (function(){
             questionId = parseInt(urlParams.get('q'));
             if (!questionId) questionId = 0;
 
+            document.getElementsByClassName("progression")[0].setAttribute("src", "/data/images/progression" + questionId + ".svg");
+            document.getElementsByClassName("progression")[0].style.visibility = questionId > 0 || questionId < 7 ? "visible" : "node";
+
             prevLink.setAttribute('href', _getUrl(questionId - 1));
             nextLink.setAttribute('href', _getUrl(questionId + 1));
             barbaContainer.setAttribute('data-prev', _getUrl(questionId - 1));
@@ -124,6 +127,12 @@ var QuizzLoader = (function(){
                     type = data.type;
                 }
             }
+
+            if (document.getElementsByClassName("progression").length) {
+                document.getElementsByClassName("progression")[0].setAttribute("src", "/data/images/progression" + questionId + ".svg");
+                document.getElementsByClassName("progression")[0].style.visibility = questionId > 0 || questionId < 7 ? "visible" : "node";
+            }
+
             var _this = this;
             currentGame = gameFactories[type](this);
 
