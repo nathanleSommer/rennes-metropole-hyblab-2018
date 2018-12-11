@@ -9,3 +9,13 @@ Projet réalisé par un groupe de 9 étudiants pluri-disciplinaires (INSA Rennes
 
 # Notre projet
 Notre projet consiste en la création d'un quizz intéractif et ludique dans le cadre de la diffusion de l'actualité locale de Rennes Métropole. Il s'agit d'un questionnaire hebdomadaire dont les questions sont tirées des articles présents sur le site [metropole.rennes.fr](https://metropole.rennes.fr/decouvrez-ici-rennes).
+
+# Installation 
+
+## Prérequis 
+* NodeJS version 9+
+* npm version 5+
+
+## Exécution en local
+Dans le dossier du projet, exécuter la commande :
+`npm start`
